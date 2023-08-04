@@ -1,0 +1,25 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section section-lg">
+      <div class="container">
+        <div class="row row-50">
+          <div class="col-12">
+            <h5 class="thumbnail-light-title" *ngIf="show_me === undefined">
+              Cargando contenido...
+            </h5> 
+            <article class="post-creative" *ngIf="show_me">
+                <div class="post-thumb text-center">
+                    <img src="https://willianmedina.com.co/willianmedina/uploads/{{ me_short[0]['imagen_url'] }}" alt="thumb" class="w-100">
+                </div>
+                <h3 class="post-creative-title mt-4">{{ me_short[0]['titulo'] }}</h3>
+                <p [innerHTML]="me_short[0]['descripcion'] | decodeHtml"></p>            
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>

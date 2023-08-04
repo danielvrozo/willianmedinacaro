@@ -1,0 +1,98 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <app-header-admin></app-header-admin>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column mt-3">
+
+            <!-- Main Content -->
+            <div style="opacity: {{ opacity }};" id="content" >
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid" >
+
+                    <!-- Page Heading -->
+                    <a [routerLink]="['/admin/slider']">Volver atrás</a>
+                    <h1 class="h3 mb-2 text-gray-800 mt-3">Crear nuevo slider</h1>
+                    <p class="mb-4">Crea un nuevo slider, <b class="text-danger">* Todos los campos son obligatorios</b>
+                    </p>
+
+                    <div class="alert alert-success" role="alert" *ngIf="code">
+                        El registro se ha creado
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Slider</h6>
+                        </div>
+                        <div class="card-body">
+                            <form (ngSubmit)="Save(form)" #form="ngForm">
+                                <div class="mb-3">
+                                    <label for="">Mostrar slider:</label> <br>
+                                    <select name="s_Mostrar" (change)="onOptionChange($event)" class="py-2 px-4">
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for=""># de Orden: </label>  <br>
+                                    <input type="number" id="orden" name="orden" [(ngModel)]="orden">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">#Hastag:</label>
+                                    <input type="text" id="titulo" name="titulo" [(ngModel)]="titulo" class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Descripción:</label>
+                                    <input type="text" id="descripcion" name="descripcion" [(ngModel)]="descripcion" class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Imagén relacionada al slider</label><br>
+                                    <input type="file" id="imagen_url" name="imagen_url" (change)="onFileImgUrl($event)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Nombre del botón:</label>
+                                    <input type="text" id="botonTitulo" name="botonTitulo" [(ngModel)]="botonTitulo" class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Link del botón:</label>
+                                    <input type="text" id="link_url" name="link_url" [(ngModel)]="link_url" class="form-control">
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="bg-info text-white fw-bold border-0  px-4 py-2 rounded-4">Crear y guardar </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+</body>

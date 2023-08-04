@@ -1,0 +1,34 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section-lg text-center">
+        <div class="container">
+          <h3 class="wow-outer"><span class="wow slideInUp" *ngIf="body_info">{{ body_info[0]['titulo_gobienro'] }}</span></h3>
+          <p class="wow-outer"><span class="wow slideInDown text-width-1" *ngIf="body_info">{{ body_info[0]['frase_corta'] }}</span></p>
+          <div class="row row-50 offset-top-2">
+            <h5 class="thumbnail-light-title" *ngIf="gobierno === undefined">
+              Cargando contenido...
+            </h5>
+            <div class="col-sm-6 col-lg-3" *ngFor="let item of gobierno">
+              <!-- Thumbnail Light-->
+              <article class="thumbnail-light">
+                <a class="thumbnail-light-media" [routerLink]="['/gobiernos/gobierno/' + item.id]">
+                  <img class="thumbnail-light-image" src="https://willianmedina.com.co/willianmedina/uploads/{{ item.imagen_url }}" alt="" width="270" height="300">
+                </a>
+                <h5 class="thumbnail-light-title">
+                    <a [routerLink]="['/gobiernos/gobierno/' + item.id]">
+                      {{ recortarDescripcion(item.titulo, 200) }} 
+                    </a>
+                  </h5>
+                  <p>{{ recortarDescripcion(item.descripcion, 200) }}</p>
+                  <a [routerLink]="['/gobiernos/gobierno/' + item.id]" class="button button-primary-outline button-winona wow slideInUp">Ver gobierno</a>
+              </article>
+            </div>
+    
+          </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>

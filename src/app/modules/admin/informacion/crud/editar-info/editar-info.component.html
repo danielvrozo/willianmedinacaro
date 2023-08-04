@@ -1,0 +1,104 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <app-header-admin></app-header-admin>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column mt-3">
+
+            <!-- Main Content -->
+            <div style="opacity: {{ opacity }};" id="content" >
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid" *ngIf="show" >
+
+                    <!-- Page Heading -->
+                    <a [routerLink]="['/admin/info']">Volver atrás</a>
+                    <h1 class="h3 mb-2 text-gray-800 mt-3">Editar Información de contácto</h1>
+
+                    <div class="alert alert-success" role="alert" *ngIf="code">
+                        El registro se ha actualizado
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Información de contácto</h6>
+                        </div>
+                        <div class="card-body">
+                            <form (ngSubmit)="Save(form)" #form="ngForm">
+
+                                <div class="mb-3">
+                                    <label for="">Celular:</label>
+                                    <input type="text" class="form-control" id="celular" name="celular" [(ngModel)]="response.celular">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Correo:</label>
+                                    <input type="text" class="form-control" id="correo" name="correo" [(ngModel)]="response.correo">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Ubicación:</label>
+                                    <input type="text" class="form-control" id="ubicacion" name="ubicacion" [(ngModel)]="response.ubicacion">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Mapa:</label>
+                                    <input type="text" class="form-control" id="mapa" name="mapa" [(ngModel)]="response.mapa">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Frase:</label>
+                                    <input type="text" class="form-control" id="frase" name="frase" [(ngModel)]="response.frase">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="">Eslogan:</label>
+                                    <input type="text" class="form-control"  class="form-control" [(ngModel)]="response.frase_corta" name="frase_corta">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Logo:  </label><br>
+                                    <input type="file" id="imagen_url" name="imagen_url" (change)="onFileImgUrl($event)" [(ngModel)]="response.logo" >
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Titulo de Plan de Gobierno:</label>
+                                    <input type="text" class="form-control"  class="form-control" [(ngModel)]="response.titulo_gobienro" name="titulo_gobienro">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Titulo de Noticias:</label>
+                                    <input type="text" class="form-control"  class="form-control" [(ngModel)]="response.titulo_noticias" name="titulo_noticias">
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="bg-info text-white fw-bold border-0  px-4 py-2 rounded-4">Guardar </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+</body>

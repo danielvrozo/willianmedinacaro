@@ -1,0 +1,29 @@
+.bg-gray-800 {
+    color: #000000;
+    background-color: #ffffff;
+    border-top: 5px dotted #03bff04f;
+    margin-top: 50px;
+}
+
+h4{
+    color: black;
+}
+
+a{
+    color: #03bff0!important;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.footer-advanced-layout {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 0px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+a img {
+    border-radius: 50%;
+}

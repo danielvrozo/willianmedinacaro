@@ -1,0 +1,3 @@
+::ng-deep .google-map-container iframe{
+    height: 100%!important;
+}

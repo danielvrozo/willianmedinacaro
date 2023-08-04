@@ -1,0 +1,28 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section section-lg">
+      <div class="container">
+        <div class="row row-50">
+          <div class="col-12">
+            <h5 class="thumbnail-light-title" *ngIf="view === undefined">
+              Cargando contenido...
+            </h5> 
+            <article class="post-creative" *ngIf="view">
+                <div class="post-thumb">
+                    <img src="{{ imagen }}" alt="thumb" class="w-100">
+                </div>
+                <h3 class="post-creative-title mt-4" [innerHTML]="titulo | decodeHtml"></h3>
+                <div [innerHTML]="descripcion | decodeHtml"></div> 
+                <a download="Noticia_{{titulo}}.pdf" target="_blank" href="{{pdf}}" >
+                    Descargar Hoja de vida
+                </a>            
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>

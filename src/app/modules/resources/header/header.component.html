@@ -1,0 +1,113 @@
+<header class="section page-header">
+  <!-- RD Navbar-->
+  <div class="rd-navbar-wrap">
+    <nav class="rd-navbar rd-navbar-corporate rd-navbar-original rd-navbar-static" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="118px" data-xl-stick-up-offset="118px" data-xxl-stick-up-offset="118px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+      <div class="rd-navbar-aside-outer" *ngIf="screen_desktop">
+        <div class="rd-navbar-aside bg-transparent">
+          <!-- RD Navbar Panel-->
+          <div class="rd-navbar-collapse">
+            <button class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1 toggle-original" data-rd-navbar-toggle="#rd-navbar-collapse-content-1">
+              <span></span>
+            </button>
+            <div class="rd-navbar-collapse-content toggle-original-elements" id="rd-navbar-collapse-content-1">
+              
+              
+              <a class="button button-primary-outline button-winona offset-top-2 wow slideInUp" [routerLink]="['/']">
+                Willian Medina Caro
+              </a>
+            </div>
+          </div>
+
+          <div class="rd-navbar-main-outer bg-transparent">
+            <div class="rd-navbar-main">
+              <nav class="navbar navbar-expand-lg navbar-light ">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link rd-nav-link" [routerLink]="['/mi-historia']">Mi historia</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle rd-nav-link" href="#" id="redesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mi campaña </a>
+                      <div class="dropdown-menu" aria-labelledby="redesDropdown">
+                        <a class="dropdown-item" [routerLink]="['/noticias']">Noticias</a>
+                        <a class="dropdown-item" [routerLink]="['/gobiernos']">Gobierno</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle rd-nav-link" href="#" id="redesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mis redes </a>
+                      <div class="dropdown-menu" aria-labelledby="redesDropdown">
+                        <a class="dropdown-item" target="_blank" *ngFor="let item of body" href="{{item.link}}">{{item.nombre}}</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle rd-nav-link" href="#" id="galeriaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Galería </a>
+                      <div class="dropdown-menu" aria-labelledby="galeriaDropdown">
+                        <a class="dropdown-item" *ngFor="let item_g of body_galeria" [routerLink]="['/galeria/'+item_g.id]">{{item_g.hastag}}</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link rd-nav-link" [routerLink]="['/contactenos']">Contacto</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <div class="rd-navbar-panel">
+            <!-- RD Navbar Toggle-->
+            <button class="rd-navbar-toggle toggle-original" data-rd-navbar-toggle="#rd-navbar-nav-wrap-1">
+              <span></span>
+            </button>
+            <!-- RD Navbar Brand-->
+            <a class="rd-navbar-brand" [routerLink]="['/']" *ngIf="body_info">
+              <img src="https://willianmedina.com.co/willianmedina/uploads/{{ body_info[0]['logo'] }}" alt="Willian Medina Caro - {{ body_info[0]['frase_corta'] }}" title="Willian Medina Caro - {{ body_info[0]['frase_corta'] }}" width="125" height="71">
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="rd-navbar-main-outer" *ngIf="screen_mobile">
+    <div class="rd-navbar-main">
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="px-3 d-flex justify-content-between">
+          <a class="rd-navbar-brand" [routerLink]="['/']" *ngIf="body_info">
+            <img src="https://willianmedina.com.co/willianmedina/uploads/{{ body_info[0]['logo'] }}" alt="Willian Medina Caro - {{ body_info[0]['frase_corta'] }}" title="Willian Medina Caro - {{ body_info[0]['frase_corta'] }}" width="50"  class="rounded-circle">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: #05bff0"></span>
+          </button>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link rd-nav-link" [routerLink]="['/mi-historia']">¿Quién soy?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rd-nav-link" [routerLink]="['/noticias']">Noticias</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle rd-nav-link" href="#" id="redesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mis redes </a>
+              <div class="dropdown-menu" aria-labelledby="redesDropdown">
+                <a class="dropdown-item" *ngFor="let item of body" href="{{item.link}}">{{item.nombre}}</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle rd-nav-link" href="#" id="galeriaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Galería </a>
+              <div class="dropdown-menu" aria-labelledby="galeriaDropdown">
+                <a class="dropdown-item" *ngFor="let item_g of body_galeria" [routerLink]="['/galeria/'+item_g.id]">{{item_g.hastag}}</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rd-nav-link" [routerLink]="['/contactenos']">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

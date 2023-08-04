@@ -1,0 +1,19 @@
+.mostrar_Si{
+    background-color: chartreuse;
+    color: white;
+    font-weight: bold;
+    padding: 5px 0px;
+    display: inline-block;
+    width: 70%;
+    border-radius: 30px;
+}
+
+.mostrar_No{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px 0px;
+    display: inline-block;
+    width: 70%;
+    border-radius: 30px;
+}

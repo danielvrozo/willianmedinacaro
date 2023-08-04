@@ -1,0 +1,92 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <app-header-admin></app-header-admin>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column mt-3">
+
+            <!-- Main Content -->
+            <div style="opacity: {{ opacity }};" id="content" >
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid" *ngIf="show" >
+
+                    <!-- Page Heading -->
+                    <a [routerLink]="['/admin/gobierno']">Volver atrás</a>
+                    <h1 class="h3 mb-2 text-gray-800 mt-3">Editar <b [innerHTML]="response.titulo | decodeHtml"></b></h1>
+                    <p class="mb-4">Edite el plan de Gobierno abierto
+                    </p>
+
+                    <div class="alert alert-success" role="alert" *ngIf="code">
+                        El registro se ha actualizado, para visualizar los cambios haz click: <a href="#/gobiernos/gobierno/{{id}}" target="_blank">aqui</a>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Gobierno</h6>
+                        </div>
+                        <div class="card-body">
+                            <form (ngSubmit)="Save(form)" #form="ngForm">
+                                <div class="mb-3">
+                                    <label for="">Titulo:</label>
+                                    <editor [(ngModel)]="response.titulo" name="titulo"
+                                    [init]="{
+                                        base_url: '/tinymce', 
+                                        suffix: '.min',
+                                        height: '200'
+                                      }" apiKey="lvrm6t8a14mownj3hle33ox65yax79pf2d0v506bzvmipkd4">
+                                    </editor>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Descripción:</label>
+                                    <editor [(ngModel)]="response.descripcion" name="descripcion"
+                                    [init]="{
+                                        base_url: '/tinymce', 
+                                        suffix: '.min'        
+                                      }" apiKey="lvrm6t8a14mownj3hle33ox65yax79pf2d0v506bzvmipkd4">
+                                      hola
+                                    </editor>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Imagén relacionada al plan de gobierno</label><br>
+                                    <input type="file" id="imagen_url" name="imagen_url" (change)="onFileImgUrl($event)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">PDF del Plan de Gobierno:</label><br>
+                                    <input type="file" id="pdf_url" name="pdf_url" (change)="onFilePDFUrl($event)">
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="bg-info text-white fw-bold border-0  px-4 py-2 rounded-4">Guardar </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+</body>

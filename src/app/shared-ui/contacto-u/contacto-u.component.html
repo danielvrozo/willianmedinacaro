@@ -1,0 +1,98 @@
+<!-- Contacts-->
+<section class="section bg-transparent">
+    <div class="range justify-content-xl-between">
+      <div class="cell-xl-6 align-self-center container">
+        <div class="row">
+          <div class="col-lg-9 cell-inner ms-0">
+            <div class="section-lg">
+              <h3 class="wow-outer">
+                <span class="wow slideInDown">Contáctenos</span>
+              </h3>
+              <!-- RD Mailform-->
+              <form class="rd-form rd-mailform" (ngSubmit)="Save(form)" #form="ngForm" >
+                <div class="row row-10">
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-first-name">Dinos tu nombre</label>
+                      <input class="form-input" id="contact-first-name" type="text" name="nombre" placeholder="Tu nombre" id="nombre" [(ngModel)]="nombre" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-email">Correo electrónco</label>
+                      <input class="form-input" id="contact-email" type="email" name="correo" placeholder="Correo electrónico" id="correo" [(ngModel)]="correo" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-phone">Celular</label>
+                      <input class="form-input" id="contact-phone" type="text" name="celular" placeholder="Tu # de celular" id="celular" [(ngModel)]="celular" required>
+                    </div>
+                  </div>
+                  <div class="col-12 wow-outer">
+                    <div class="form-wrap wow fadeSlideInUp">
+                      <label class="form-label-outside" for="contact-message">Tu mensaje ;)</label>
+                      <textarea class="form-input" id="contact-message" name="mensaje" placeholder="Escribe tu mensaje" id="mensaje" [(ngModel)]="mensaje" required>></textarea>
+                    </div>
+                  </div>
+
+                  <div class="alert alert-danger mt-4" role="alert" *ngIf="error">
+                    Debes llenar todos los campos.
+                  </div>
+                  <div class="alert alert-success mt-4" role="alert" *ngIf="code">
+                      Tu comentario se ha enviado con exito
+                  </div>
+                </div>
+                <div class="group group-middle">
+                  <div class="wow-outer">
+                    <button class="button button-primary button-winona wow slideInRight" type="submit">Enviar mensaje</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cell-xl-5 height-fill wow fadeIn">
+        <div class="google-map-container" *ngIf="body_info" [innerHTML]="body_info[0]['mapa'] | decodeHtml">
+            
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Contact Info-->
+<section class="section section-sm">
+    <div class="container">
+      <div class="layout-bordered">
+        <div class="layout-bordered-item wow-outer">
+          <div class="layout-bordered-item-inner wow slideInUp">
+            <div class="icon icon-lg mdi mdi-phone text-primary">
+                <i class="bi bi-whatsapp icon icon-md icon-modern mdi mdi-phone"></i>
+            </div>
+            <ul class="list-0">
+              <li>
+                <a class="link-default" href="https://api.whatsapp.com/send?phone={{body_info[0]['celular']}}" *ngIf="body_info">{{ body_info[0]['celular'] }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="layout-bordered-item wow-outer">
+          <div class="layout-bordered-item-inner wow slideInUp">
+            <div class="icon icon-lg mdi mdi-email text-primary">
+                <i class="bi bi-envelope-check-fill icon icon-md icon-modern mdi mdi-map-marker"></i>
+            </div>
+            <a class="link-default" *ngIf="body_info" href="mailto:{{body_info[0]['correo']}}">{{body_info[0]['correo']}}</a>
+          </div>
+        </div>
+        <div class="layout-bordered-item wow-outer">
+          <div class="layout-bordered-item-inner wow slideInUp">
+            <div class="icon icon-lg mdi mdi-map-marker text-primary">
+                <i class="bi bi-geo-alt-fill icon icon-md icon-modern mdi mdi-map-marker"></i>
+            </div>
+            <a class="link-default" *ngIf="body_info">{{body_info[0]['ubicacion']}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

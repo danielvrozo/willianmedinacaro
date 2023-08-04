@@ -1,0 +1,30 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section section-lg">
+      <div class="container">
+        <div class="row row-50">
+          <div class="col-12">
+            <article class="post-creative">
+                <h3 class="post-creative-title" [innerHTML]="titulo | decodeHtml"></h3>
+                <div [innerHTML]="descripcion | decodeHtml"></div>
+                <div class="mt-4 div-galery" *ngIf="album">
+                    <carousel class="carousel-galery">
+                        <slide *ngFor="let photo of album.photo" class="slide-carousel-galery">
+                            <img class="img-slide-galery" [src]="getPhotoUrl(photo)" alt="{{ photo.title }}">
+                        </slide>
+                    </carousel>
+                </div>
+            <br>
+            <b>
+                Para ver el álbum completo: <a href="https://www.flickr.com/photos/198472196@N03/albums/{{link_original}}" class="color-secondary">da click aquí</a>
+            </b>                
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>

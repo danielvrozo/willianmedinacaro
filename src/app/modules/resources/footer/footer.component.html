@@ -1,0 +1,27 @@
+<!-- Page Footer-->
+<footer class="section footer-advanced bg-gray-800">
+    <div class="container">
+      <hr>
+    </div>
+    <div class="footer-advanced-aside">
+      <div class="container">
+
+        <div class="text-center">
+          <a class="brand" href="index.html"><img src="assets/campana/logo.png" alt="" width="40" srcset="assets/campana/logo.png"></a>
+          <p *ngIf="body_info">{{body_info[0]['frase']}}</p>
+          <ul class="contact-info ">
+            <li *ngIf="body_info"><i class="fa fa-envelope"></i>{{body_info[0]['correo']}}</li>
+            <li *ngIf="body_info"><i class="fa fa-map-marker"></i>{{body_info[0]['ubicacion']}} </li>
+            <li *ngIf="body_info"><i class="fa fa-phone"></i>{{body_info[0]['celular']}}</li>
+          </ul> 
+        </div>
+                        
+        <div class="footer-advanced-layout mt-3">
+          <!-- Rights-->
+          <p class="rights" *ngIf="body_info"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>{{body_info[0]['frase_corta']}} | 2023 </span><span>&nbsp;</span><br class="d-sm-none"></p>  
+        </div>
+
+        
+      </div>
+    </div>
+  </footer>

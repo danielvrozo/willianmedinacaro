@@ -1,0 +1,85 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <app-header-admin></app-header-admin>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column mt-3">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Galeria</h1>
+                    <p class="mb-4">Items de Galeria
+                    </p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                Galeria
+                            </h6>
+
+                            <button class="btn bg-success text-white fw-bold px-4 py-2 rounded-1" [routerLink]="['crear/']">Crear nuevo</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Tiulo</th>
+                                            <th>Descripción</th>
+                                            <th>#Hastag</th>
+                                            <th>Galeria ID</th>
+                                            <th>Fecha</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="show">
+                                        <tr *ngFor="let item of body">
+                                            <td>{{item['titulo']}}</td>
+                                            <td [innerHTML]="(item.descripcion | decodeHtml)"></td>
+                                            <td>{{item['hastag']}}</td>
+                                            <td>{{item['link_galeria']}}</td>
+                                            <td>{{item['fecha']}}</td>
+                                            <td>
+                                                <a [routerLink]="['editar/'+item.id]" class="bg-info text-white fw-bold px-3 py-2 me-1">Editar</a>
+                                                <a [routerLink]="['eliimnar/'+item.id]" class="bg-danger text-white fw-bold px-3 py-2">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+</body>

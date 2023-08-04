@@ -1,0 +1,14 @@
+#mensaje-hr{
+    background-color: #05bff0;
+}
+
+.section-xs {
+    padding: 15px 0;
+    border-radius: 15px;
+}
+
+@media (max-width: 770px) {
+    .section-xs {
+        border-radius: 0px;
+    }
+}

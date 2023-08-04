@@ -1,0 +1,32 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section-lg text-center">
+        <div class="container">
+          <h3 class="wow-outer"><span class="wow slideInUp" *ngIf="body_info">{{ body_info[0]['titulo_noticias'] }}</span></h3>
+          <p class="wow-outer"><span class="wow slideInDown text-width-1" *ngIf="body_info">{{ body_info[0]['frase_corta'] }}</span></p>
+          <div class="row row-50 offset-top-2">
+            <h5 class="thumbnail-light-title" *ngIf="noticias === undefined">
+              Cargando contenido...
+            </h5>
+            <div class="col-sm-6 col-lg-3" *ngFor="let item of noticias">
+              <!-- Thumbnail Light-->
+              <article class="thumbnail-light">
+                <a class="thumbnail-light-media" [routerLink]="['/noticias/noticia/' + item.id]">
+                  <img class="thumbnail-light-image" src="https://willianmedina.com.co/willianmedina/uploads/{{ item.imagen_url }}" alt="" width="270" height="300">
+                </a>
+                <h5 class="thumbnail-light-title">
+                  <a [routerLink]="['/noticias/noticia/' + item.id]" [innerHTML]="item.titulo | decodeHtml"></a>
+                </h5>
+                <p [innerHTML]="(item.descripcion | slice:0:150) + (item.descripcion.length > 150 ? '...' : '' | decodeHtml)"> </p>
+                <a [routerLink]="['/noticias/noticia/' + item.id]" class="button button-primary-outline button-winona wow slideInUp">Ver noticia</a>
+              </article>
+            </div>
+    
+          </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>
