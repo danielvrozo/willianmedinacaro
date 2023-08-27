@@ -37,6 +37,7 @@ import { InformacionComponent } from './modules/admin/informacion/informacion.co
 import { HistoriaComponent } from './modules/historia/historia.component';
 import { GobiernoGetComponent } from './modules/gobierno-get/gobierno-get.component';
 import { GobiernoComponent } from './modules/gobierno/gobierno.component';
+import { BienestarAnimalComponent } from './modules/bienestar-animal/bienestar-animal.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'galeria/:id', component: GaleriaGetComponent },
   { path: 'mi-historia', component: BiografiaComponent },
   { path: 'historia', component:HistoriaComponent },
+  { path: 'bienestar-animal', component:BienestarAnimalComponent },
   /* Admin */
   { path: 'admin/login', component: LoginComponent },
 

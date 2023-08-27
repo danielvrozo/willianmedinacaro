@@ -58,6 +58,7 @@ import { RedesSocialesComponent } from './shared-ui/redes-sociales/redes-sociale
 import { ProgramsGobiernoComponent } from './shared-ui/programs-gobierno/programs-gobierno.component';
 import { GobiernoGetComponent } from './modules/gobierno-get/gobierno-get.component';
 import { GobiernoComponent } from './modules/gobierno/gobierno.component';
+import { BienestarAnimalComponent } from './modules/bienestar-animal/bienestar-animal.component';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import { GobiernoComponent } from './modules/gobierno/gobierno.component';
     ProgramsGobiernoComponent,
     GobiernoGetComponent,
     GobiernoComponent,
+    BienestarAnimalComponent,
   ],
   imports: [
     BrowserModule,

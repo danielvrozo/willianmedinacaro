@@ -1,0 +1,49 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section section-lg">
+      <div class="container">
+        <div class="row row-50">
+          <div class="col-12">
+            <article class="post-creative">
+                <h3 class="post-creative-title"> Bienestar Animal </h3>
+                <div class="app-module">
+                    <div class="app">
+                
+                        <div class="module-container">
+                            <div class="d-md-flex d-block justify-content-between mt-4">
+                                <div class="col-12 col-md-6 module-text-form">
+                                  <p>
+                                    ¡Hola! 😄 Escribe el nombre y sube una foto de tu mascota 🐶🐱 ¡El nombre puedes escribirlo como quieras, ya sea en mayúsculas o minúsculas! ¡Verás cómo se actualizará en la imagen en tiempo real! 🌟
+                                  </p>
+                                  <div class="col-12  mt-4 mb-3">
+                                    <label for="nombreUsuario" class="mb-2 fw-bold">Ingresa el nombre de tu mascota 🐶🐱:</label>
+                                    <input type="text" class="form-control" id="nombreUsuario" [(ngModel)]="nombreUsuario" (input)="crearImagenPersonalizada()" placeholder="Por ejemplo: Layfun"/>
+                                  </div>
+                                  <div class="col-12 mb-3">
+                                    <label for="imagenUsuario" class="mb-2 fw-bold">Selecciona una imagen de tu mascota:</label>
+                                    <input type="file" class="form-control" id="imagenUsuario" (change)="cargarImagen($event)">
+                                  </div>
+                                </div>
+                                <div class="col-md-5 col-12 text-center" id="module-generate-visualize">
+                                  <canvas #canvas class="canva-module-img"></canvas>
+                                  <a #downloadLink download="{{nombreUsuario}}_BienestarAnimal.jpg" class="link-download-module"
+                                    [ngClass]="{ 'd-block': activeButton, 'd-none': !activeButton }">
+                                    <span class="download-img-module">Descargar Imagen</span>
+                                  </a>
+                                </div>
+                              </div>
+                                                           
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>
