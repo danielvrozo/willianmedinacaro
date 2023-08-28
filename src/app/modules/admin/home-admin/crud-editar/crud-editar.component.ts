@@ -49,11 +49,13 @@ export class CrudEditarComponent implements OnInit {
   Save(form: NgForm){
     this.opacity = .5;
     let formData = new FormData();
+    
 
     this.image_url = this.image_url ?? this.response.imagen_url;
 
     formData.append('url_video', form.form.controls['url_video']['value']);
     formData.append('imagen_url', this.image_url);
+
 
     this._ApI.UPDATE('?id='+this.id, formData).subscribe((data) => {
       this.code = true;

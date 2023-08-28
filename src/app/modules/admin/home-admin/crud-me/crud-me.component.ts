@@ -34,7 +34,8 @@ export class CrudMeComponent implements OnInit {
 
       this.response = {
         titulo: this.body[0]['titulo'],
-        descripcion: this.body[0]['descripcion']
+        descripcion: this.body[0]['descripcion'],
+        imagen_url: this.body[0]['imagen_url']
       }
     });
   }
@@ -48,6 +49,7 @@ export class CrudMeComponent implements OnInit {
     formData.append('titulo', form.form.controls['titulo']['value']);
     formData.append('descripcion', form.form.controls['descripcion']['value']);
     formData.append('imagen_url', this.image_url);
+
 
     this._Api.UPDATE(formData).subscribe((data) => {
       console.log(data);

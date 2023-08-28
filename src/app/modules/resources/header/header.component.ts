@@ -3,6 +3,7 @@ import {  BreakpointObserver, BreakpointState} from '@angular/cdk/layout';
 import { GaleriaAllService } from 'src/app/apis/galeria/galeria-all.service';
 import { RedesAllService } from 'src/app/apis/redes/redes-all.service';
 import { InfoAllService } from 'src/app/apis/info/info-all.service';
+import { AllGobiernoService } from 'src/app/apis/gobierno/all/all-gobierno.service';
 
 @Component({
   selector: 'app-header',
@@ -18,12 +19,14 @@ export class HeaderComponent implements OnInit {
   body:any;
   body_galeria:any;
   body_info:any;
+  pdf:any;
 
   constructor(
     public breakpointObserver: BreakpointObserver,
     private _ApiRedes: RedesAllService,
     private _ApiGaleria: GaleriaAllService,
-    private _ApiInfo: InfoAllService
+    private _ApiInfo: InfoAllService,
+    private _ApiAllPlan: AllGobiernoService,
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class HeaderComponent implements OnInit {
     this.MostrarRedes();
     this.MostrarGalerias();
     this.MostrarInfoContacto();
+    this.mostrarPlanDeGobierno();
   }
 
   /* Dependiendo la resolucion - desktop o mobile, cargara diferentes elementos */
@@ -48,6 +52,12 @@ export class HeaderComponent implements OnInit {
       }
   });
   };
+
+  mostrarPlanDeGobierno(){
+    this._ApiAllPlan.ALL_GET_GOBIERNO('?id=ALL').subscribe((data) => {
+      this.pdf = "https://willianmedina.com.co/willianmedina/uploads/"+data.body.content[0].pdf_url;
+    });
+  }
 
   MostrarRedes(){
     this._ApiRedes.ALL('?id=ALL').subscribe((data) => {

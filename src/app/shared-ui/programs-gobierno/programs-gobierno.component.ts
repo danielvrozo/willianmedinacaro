@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { AllGobiernoService } from 'src/app/apis/gobierno/all/all-gobierno.service';
 import { InfoAllService } from 'src/app/apis/info/info-all.service';
 import { FechaLetras } from 'src/app/class/fecha-letras';
@@ -12,16 +13,21 @@ export class ProgramsGobiernoComponent implements OnInit {
 
   gobierno:any;
   body_info:any;
+  pdf:any;
+  safeIframeUrl: any;
   
   constructor(
     private _ApiAllPlan: AllGobiernoService,
     private _FechaLetras: FechaLetras,
-    private _ApiInfo: InfoAllService
+    private _ApiInfo: InfoAllService,
+    public sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit(): void {
     this.mostrarPlanDeGobierno();
     this.MostrarInfoContacto();
+
+    
   }
 
   MostrarInfoContacto(){
@@ -33,6 +39,11 @@ export class ProgramsGobiernoComponent implements OnInit {
   mostrarPlanDeGobierno(){
     this._ApiAllPlan.ALL_GET_GOBIERNO('?id=ALL').subscribe((data) => {
       this.gobierno = data.body.content;
+      this.pdf = "https://willianmedina.com.co/willianmedina/uploads/"+data.body.content[0].pdf_url;
+
+      setTimeout(() => {
+        this.safeIframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdf); // Añadimos el link al iframe siguiendo la estructuración de seguridad sugerida por Angular
+      }, 500);
     });
   }
 

@@ -10,9 +10,6 @@
               Cargando contenido...
             </h5> 
             <article class="post-creative" *ngIf="view">
-                <div class="post-thumb">
-                    <img src="{{ imagen }}" alt="thumb" class="w-100">
-                </div>
                 <h3 class="post-creative-title mt-4" [innerHTML]="titulo | decodeHtml"></h3>
                 <div [innerHTML]="descripcion | decodeHtml"></div> 
                 <a download="HojaDeVida_WillianMedina.pdf" target="_blank" href="{{pdf}}" >
