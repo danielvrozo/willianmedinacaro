@@ -59,6 +59,7 @@ import { ProgramsGobiernoComponent } from './shared-ui/programs-gobierno/program
 import { GobiernoGetComponent } from './modules/gobierno-get/gobierno-get.component';
 import { GobiernoComponent } from './modules/gobierno/gobierno.component';
 import { BienestarAnimalComponent } from './modules/bienestar-animal/bienestar-animal.component';
+import { YoBuscoComponent } from './modules/yo-busco/yo-busco.component';
 
 
 @NgModule({
@@ -123,6 +124,7 @@ import { BienestarAnimalComponent } from './modules/bienestar-animal/bienestar-a
     GobiernoGetComponent,
     GobiernoComponent,
     BienestarAnimalComponent,
+    YoBuscoComponent,
   ],
   imports: [
     BrowserModule,

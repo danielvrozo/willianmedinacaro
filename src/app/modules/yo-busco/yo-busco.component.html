@@ -1,0 +1,89 @@
+<div class="page container">
+    <!-- Page Header-->
+    <app-header></app-header>
+    <!-- Breadcrumbs -->
+    <section class="section section-lg">
+      <div class="container">
+        <div class="row row-50">
+          <div class="col-12">
+            <article class="post-creative">
+                <h3 class="post-creative-title"> Vamos a constuir futuro </h3>
+                <div class="app-module">
+                    <div class="app">
+                
+                        <div class="module-container">
+                            <div class="d-md-flex d-block justify-content-between mt-4">
+                                <div class="col-12 col-md-6 module-text-form">
+                                  <p>
+                                    ¡Hola! 😄 Escribe tu nombre, selecciona el sector y sube una foto de tu perfil ¡El nombre puedes escribirlo como quieras, ya sea en mayúsculas o minúsculas! ¡Verás cómo se actualizará en la imagen en tiempo real! 🌟
+                                  </p>
+                                  <div class="col-12  mt-4 mb-3">
+                                    <label for="nombreUsuario" class="mb-2 fw-bold">Ingresa tu nombre:</label>
+                                    <input type="text" class="form-control" id="nombreUsuario" [(ngModel)]="nombreUsuario" (input)="crearImagenPersonalizada()" placeholder="Por ejemplo: Juan"/>
+                                  </div>
+
+                                  <div class="col-12 mb-3">
+                                    <label for="optionsSector" class="mb-2 fw-bold">Selecciona un tema:</label>
+                                    <select name="optionsThema" id="optionsThema" class="form-select" (change)="modelarTextos($event);">
+                                      <option value=""></option>
+                                      <option value="35px">Adulto Mayor</option>
+                                      <option value="50px">Campesinos</option>
+                                      <option value="28px">Castilla Diversa</option>
+                                      <option value="28px">Comercio Próspero</option>
+                                      <option value="50px">Cultura</option>
+                                      <option value="50px">Deporte</option>
+                                      <option value="30px">Desarrollo Urbano</option>
+                                      <option value="40px">Discapacidad</option>
+                                      <option value="50px">Educación</option>
+                                      <option value="50px">Empleo</option>
+                                      <option value="42px">Emprendedores</option>
+                                      <option value="42px">Gobernabilidad</option>
+                                      <option value="35px">Grupos Étnicos</option>
+                                      <option value="48px">Innovación</option>
+                                      <option value="50px">Jóvenes</option>
+                                      <option value="50px">Juntas de Acción Comunal</option>
+                                      <option value="50px">LGBTI</option>
+                                      <option value="38px">Medio Ambiente</option>
+                                      <option value="50px">Mujeres</option>
+                                      <option value="40px">Recreación</option>
+                                      <option value="35px">Salud Humanizada</option>
+                                      <option value="35px">Seguridad Humana</option>
+                                      <option value="33px">Servicios Públicos</option>
+                                      <option value="45px">Tecnologías</option>
+                                      <option value="32px">Turismo Sostenible</option>
+                                      <option value="50px">Víctimas</option>
+                                      <option value="32px">Vivienda Digna</option>
+                                    </select>
+                                </div>
+
+                                  <div class="col-12 mb-3">
+                                    <label for="imagenUsuario" class="mb-2 fw-bold">Selecciona una imagen de perfil:</label>
+                                    <input type="file" class="form-control" id="imagenUsuario" (change)="cargarImagen($event)">
+                                  </div>
+
+                                  <div>
+                                    <a #downloadLink download="{{nombreUsuario}}-Vamos-Construir-Futuro-Con-{{optionText}}.jpg" class="link-download-module"
+                                    [ngClass]="{ 'd-block': activeButton, 'd-none': !activeButton }">
+                                    <span class="download-img-module">Descargar Imagen</span>
+                                  </a>
+                                  </div>
+                                </div>
+
+
+                                <div class="col-md-5 col-12 text-center" id="module-generate-visualize">
+                                  <canvas #canvas class="canva-module-img"></canvas>
+                                </div>
+                              </div>
+                                                           
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Page Footer-->
+    <app-footer></app-footer>
+</div>
