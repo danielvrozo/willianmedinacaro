@@ -91,12 +91,29 @@ export class YoBuscoComponent implements OnInit {
 
     // Dibujar la imagen de usuario en el canvas si está disponible
     if (this.imagenUsuario) {
+      // Calcular el tamaño de la imagen para que encaje en el círculo sin deformarse
+      const circleRadius = 172;
+      const circleDiameter = circleRadius * 2;
+      const maxImageSize = 452; // El tamaño máximo que desees para la imagen
+      let scaledWidth, scaledHeight;
+
+      if (this.imagenUsuario.width > this.imagenUsuario.height) {
+        // La imagen es más ancha que alta
+        scaledWidth = maxImageSize;
+        scaledHeight = (maxImageSize * this.imagenUsuario.height) / this.imagenUsuario.width;
+      } else {
+        // La imagen es más alta que ancha
+        scaledWidth = (maxImageSize * this.imagenUsuario.width) / this.imagenUsuario.height;
+        scaledHeight = maxImageSize;
+      }
+
+      // Dibujar la imagen de usuario en el canvas escalandola al tamaño calculado
       ctx.save();
       ctx.beginPath();
-      ctx.arc(252, 447, 186, 0, Math.PI * 2); // Coordenadas y radio para un círculo
+      ctx.arc(252, 447, circleRadius, 0, Math.PI * 2); // Coordenadas y radio para un círculo
       ctx.closePath();
       ctx.clip(); // Establecer el área recortada
-      ctx.drawImage(this.imagenUsuario, 55, 256, 400, 400); // Dibujar imagen dentro del círculo recortado
+      ctx.drawImage(this.imagenUsuario, 252 - scaledWidth / 2, 447 - scaledHeight / 2, scaledWidth, scaledHeight); // Dibujar imagen centrada y escalada
       ctx.restore(); // Restaurar el contexto
     }
 
